@@ -1,0 +1,24 @@
+{% extends 'trip/base.html' %}
+{% block content %}
+<h1>My Trips</h1>
+{% if user.is_authenticated %}
+
+<p>Logged in as {{user.username}}</p>
+<form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+
+
+{% else %}
+<p>Pls Login <a href="{% url 'login' %}">Login</a></p>
+{% endif %}
+
+<ul>
+    {% for trip in trips %}
+
+    <li>{{trip.country}} | {{trip.city}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
