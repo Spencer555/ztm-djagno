@@ -1,15 +1,4 @@
-
-
-{% extends 'trip/_base.html' %}
-{% block content %}
-<h1>You've been logged out</h1>
-
+<h1>You've been logged out.</h1>
 <p>
-<form action="{% url 'login' %}" method="post" style="display:inline;">
-    {% csrf_token %}
-    <button type="submit">Login</button>
-</form>
-
+    <a href="{% url 'login' %}">Login Here..</a>
 </p>
-
-{% endblock %}
